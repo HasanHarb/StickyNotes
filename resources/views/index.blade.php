@@ -32,6 +32,9 @@
   @include('includes.slider')
   
   @include('includes.services')
+  
+  @include('includes.statistics')
+  
   @include('includes.team')
   
   @include('includes.footer')
