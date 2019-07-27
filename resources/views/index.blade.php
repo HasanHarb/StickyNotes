@@ -30,6 +30,11 @@
 
   @include('includes.navbar')
   @include('includes.slider')
+  
+  @include('includes.services')
+  @include('includes.team')
+  
+  @include('includes.footer')
 
   <!--========= LINK TO TOP ================-->
   <div class="back-to-top leggoo-nav">
