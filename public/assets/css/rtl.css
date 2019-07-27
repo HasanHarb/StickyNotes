@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+body{
+	direction: rtl;
+	text-align: right;
+    font-family: 'Cairo', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    letter-spacing: 0px !important;
+}
+p{
+	direction: rtl;
+    letter-spacing: 0px;
+    font-family: 'Cairo', sans-serif;
+    letter-spacing: 0px !important;
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: right;
+}
+.navbar-header {
+    float: right;
+}
+.navbar-right {
+    float: left !important;
+    margin-left: -15px;
+}
+.navbar-nav > li {
+    float: right;
+}
+
+@media(max-width: 768px){
+.navbar-header {
+    width: 100%;
+}
+.navbar-brand {
+    float: right;
+    }
+.navbar-nav > li {
+    width: 100%;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    float: right;
+}
+.navbar-toggle {
+    float: left;
+}
+}
+.home-cover {
+    width: 100%;
+    height: 100%;
+    background: url(../img/bg-rtl.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.home-text p:first-child{
+    letter-spacing: 0px !important;
+}
+.home-text h1{
+    letter-spacing: 0px !important;
+}
+.about-text {
+    text-align: right !important;
+}
+.about-text p {
+    text-align: right;
+}
+#BLOG .thumbnail .caption {
+    text-align: right;
+}
+.item-testimony{
+    text-align: right;
+}
+.item-testimony .fa.pull-left {
+    margin-left: 15px;
+    margin-top: 8px;
+    float: right !important;
+}
+.date-blog {
+    float: left;
+}
+.thumbnail .breadcrumb {
+    text-align: right;
+}
+.owl-carousel{
+    direction: ltr;
+}
+
+.list-group .fa {
+    padding-left: 15px;
+    padding-right: 0px;
+}
+address p i.fa {
+    margin-left: 15px;
+}
+
+
+
+
+
+
+
