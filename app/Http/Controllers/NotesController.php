@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Person;
+use App\User;
+use App\Note;
+use Illuminate\Support\Facades\Auth;
 
 class NotesController extends Controller
 {
@@ -13,7 +17,8 @@ class NotesController extends Controller
      */
     public function index()
     {
-        return view('notes.index');
+        $persons = Person::all();
+        return view('notes.index' , compact('persons'));
     }
 
     /**
@@ -80,5 +85,15 @@ class NotesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function StorePerson(Request $request)
+    {
+        $person = new Person();
+        $person->first_name = $request->first_name;
+        $person->last_name = $request->last_name;
+        $person->user_id = Auth::id();
+        $person->save();
+        return redirect()->back();
     }
 }
