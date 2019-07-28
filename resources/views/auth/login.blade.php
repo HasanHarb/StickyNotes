@@ -4,11 +4,11 @@
 <section class="section">
     <div class="container">
         <div class="row">
-                <div class="jumbotron text-center" style="background-color: #00b7b7;box-shadow: 0 10px 10px -5px;">
-                        <div class="container">
-                          <h2 class="display-3" style="color: white">مرحبا بك في موقع ملاحظاتي</h2>
-                        </div>
-                      </div>
+            <div class="jumbotron text-center" style="background-color: #00b7b7;box-shadow: 0 10px 10px -10px;">
+                <div class="container">
+                    <h2 class="display-3" style="color: white">مرحبا بك في موقع ملاحظاتي</h2>
+                </div>
+            </div>
         </div>
         <br>
         <div class="row">
@@ -18,7 +18,7 @@
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                            <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
@@ -31,7 +31,8 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                             </div>
-                            <label for="email"class="col-md-4 col-form-label text-md-right">{{ __('البريد الالكتروني') }}</label>
+                            <label for="email"
+                                class="col-md-4 col-form-label text-md-right">{{ __('البريد الالكتروني:') }}</label>
 
                         </div>
 
@@ -41,7 +42,8 @@
                                     class="form-control @error('password') is-invalid @enderror" name="password"
                                     required autocomplete="current-password">
                             </div>
-                            <label for="password"class="col-md-4 col-form-label text-md-right">{{ __('كلمة المرور') }}</label>
+                            <label for="password"
+                                class="col-md-4 col-form-label text-md-right">{{ __('كلمة المرور:') }}</label>
                         </div>
 
                         <div class="form-group row">
@@ -78,8 +80,7 @@
                 <p>لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم
                     في
                     صناعات المطابع ودور النشر.</p>
-                    <button type="submit" class="btn btn-leggoo pull-right">انشاء حساب</button>
-                
+                <button type="submit" class="btn btn-leggoo pull-right">انشاء حساب</button>
             </div>
         </div>
     </div>
