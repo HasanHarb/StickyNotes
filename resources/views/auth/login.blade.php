@@ -12,6 +12,11 @@
         </div>
         <br>
         <div class="row">
+            <style>
+                .contact-form .form-control {
+                    color: #999 !important;
+                }    
+            </style>
             <div class="col-xs-12 col-sm-6 col-md-7 col-md-offset-1 col-lg-7 col-lg-offset-1">
                 <div class="contact-form">
                     @if ($errors->any())
