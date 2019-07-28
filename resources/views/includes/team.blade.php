@@ -16,8 +16,8 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        <div class="row text-center">
+            {{-- <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="team-item">
                     <img src="assets/img/team/team1.jpg" alt="">
                     <div class="team-name"> كارين جونز </div>
@@ -37,8 +37,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            </div> --}}
+            {{-- <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="team-item">
                     <img src="assets/img/team/team2.jpg" alt="">
                     <div class="team-name"> ناتالى جونز </div>
@@ -79,7 +79,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"></div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="team-item wow fadeI">
                     <img src="assets/img/team/team4.jpg" alt="">
@@ -101,6 +102,8 @@
                     </div>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"></div>
+
         </div>
     </div>
 </section><!-- END TEAM SECTION -->

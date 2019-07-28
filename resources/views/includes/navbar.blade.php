@@ -12,7 +12,7 @@
             <a class="navbar-brand" href="index-1.html">{{ config('app.name') }}</a>
         </div>
         <div class="collapse navbar-collapse" id="collapse-toggle">
-            <ul class="nav navbar-nav navbar-right leggoo-nav">
+            <ul class="nav navbar-nav navbar-right">
                 <li class="hvr-shutter-in-vertical"><a href="#HOME"><i class="fa fa-tv nav-icon"></i> الرئيسيه </a></li>
                 <li class="hvr-shutter-in-vertical"><a href="#ABOUT"><i class="fa fa-star-o nav-icon"></i> من نحن</a>
                 </li>
@@ -28,6 +28,35 @@
                 </li>
                 <li class="hvr-shutter-in-vertical"><a href="#CONTACT"><i class="fa fa-phone nav-icon"></i> اتصل بنا</a>
                 </li>
+                <!-- Authentication Links -->
+                @guest
+                    <li class="hvr-shutter-in-vertical">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('تسجيل الدخول') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="hvr-shutter-in-vertical">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('ال تسجيل') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="hvr-shutter-in-vertical dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu" style="text-align: right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" style="margin: 10%" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('تسجيل الخروج') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
