@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('notes', 'NotesController');
 Route::post('/notes/StorePerson', 'NotesController@StorePerson')->name('person.store');
+Route::post('/notes/ChangeStatus', 'NotesController@ChangeStatus');
+Route::get('/{id}', 'NotesController@show');
