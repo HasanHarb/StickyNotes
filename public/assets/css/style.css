@@ -338,7 +338,7 @@ p{
   letter-spacing: 5px;
   font-size: 18px;
   color: #fff;
-  font-family: 'Raleway', sans-serif;
+  /* font-family: 'Raleway', sans-serif; */
   text-transform: uppercase;
 }
 .home-text h1 {
@@ -347,7 +347,7 @@ p{
     color: #ffffff;
     font-weight: 700;
     letter-spacing: 2px;
-    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
     margin: 30px 0px;
     line-height: 55px;
     border: 10px solid #00B7B7;

@@ -13,21 +13,19 @@
         </div>
         <div class="collapse navbar-collapse" id="collapse-toggle">
             <ul class="nav navbar-nav navbar-right">
-                <li class="hvr-shutter-in-vertical"><a href="#HOME"><i class="fa fa-tv nav-icon"></i> الرئيسيه </a></li>
-                <li class="hvr-shutter-in-vertical"><a href="#ABOUT"><i class="fa fa-star-o nav-icon"></i> من نحن</a>
-                </li>
-                <li class="hvr-shutter-in-vertical"><a href="#SERVICES"><i class="fa fa-heart-o nav-icon"></i>
-                        خدماتنا</a></li>
-                <li class="hvr-shutter-in-vertical"><a href="#TEAM"><i class="fa fa-user-o nav-icon"></i> فريق العمل</a>
-                </li>
-                <li class="hvr-shutter-in-vertical"><a href="#WORK"><i class="fa fa-lemon-o nav-icon"></i> اعمالنا</a>
-                </li>
-                <li class="hvr-shutter-in-vertical"><a href="#PRICING"><i class="fa fa-clone nav-icon"></i> اسعارنا</a>
-                </li>
-                <li class="hvr-shutter-in-vertical"><a href="#BLOG"><i class="fa fa-sun-o nav-icon"></i> المدونه</a>
-                </li>
+                <li class="hvr-shutter-in-vertical"><a href="/"><i class="fa fa-tv nav-icon"></i> الرئيسيه </a></li>
+                {{-- <li class="hvr-shutter-in-vertical"><a href="#SERVICES"><i class="fa fa-heart-o nav-icon"></i>
+                        خدماتنا</a></li> --}}
+                {{-- <li class="hvr-shutter-in-vertical"><a href="#TEAM"><i class="fa fa-user-o nav-icon"></i> فريق العمل</a>
+                </li> --}}
+                {{-- <li class="hvr-shutter-in-vertical"><a href="#WORK"><i class="fa fa-lemon-o nav-icon"></i> اعمالنا</a>
+                </li> --}}
+                {{-- <li class="hvr-shutter-in-vertical"><a href="#PRICING"><i class="fa fa-clone nav-icon"></i> اسعارنا</a>
+                </li> --}}
+                {{-- <li class="hvr-shutter-in-vertical"><a href="#BLOG"><i class="fa fa-sun-o nav-icon"></i> المدونه</a> --}}
+                {{-- </li>
                 <li class="hvr-shutter-in-vertical"><a href="#CONTACT"><i class="fa fa-phone nav-icon"></i> اتصل بنا</a>
-                </li>
+                </li> --}}
                 <!-- Authentication Links -->
                 @guest
                     <li class="hvr-shutter-in-vertical">
@@ -35,10 +33,11 @@
                     </li>
                     @if (Route::has('register'))
                         <li class="hvr-shutter-in-vertical">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('ال تسجيل') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('انشاء حساب') }}</a>
                         </li>
                     @endif
                 @else
+                    <li class="hvr-shutter-in-vertical"><a href="/notes"><i class="fa fa-star-o nav-icon"></i> ملاحظاتي</a></li>                    
                     <li class="hvr-shutter-in-vertical dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
