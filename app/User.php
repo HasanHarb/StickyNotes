@@ -39,11 +39,11 @@ class User extends Authenticatable
 
     public function persons()
     {
-        return $this->hasMany('App\Person' , 'id');
+        return $this->hasMany('App\Person');
     }
 
     public function notes()
     {
-        return $this->hasMany('App\Note' , 'id');
+        return $this->hasMany('App\Note');
     }
 }

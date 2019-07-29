@@ -9,6 +9,9 @@
         .btn-p-20 {
             padding: 20px 30px !important;
         }
+        .color-black{
+            color: #4f4f4f;
+        }
     </style>
     <div class="container">
         <div class="row text-center">
@@ -35,24 +38,26 @@
             </div>
         </div>
         <div class="row">
+            <?php
+                $style = array("note-yellow", "note-blue", "note-pink");
+            ?>
             <div class="wrapper clearfix">
-                <aside class="note-wrap note-yellow">
-                    <p>هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال
-                        بعض النوادر أو الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك أن</p>
-                    <a href="http://youtu.be/vFYaFT0q6Uw">The Mighty Boosh</a>
-                </aside>
-                <aside class="note-wrap note-blue">
-                    <p>So we back in the mine, got our pick axe swinging from side to side</p>
-                    <a href="http://youtu.be/cPJUBQd-PNM">CaptainSparklez</a>
-                </aside>
-                <aside class="note-wrap note-blue">
-                    <p>So we back in the mine, got our pick axe swinging from side to side</p>
-                    <a href="http://youtu.be/cPJUBQd-PNM">CaptainSparklez</a>
-                </aside>
-                <aside class="note-wrap note-pink">
-                    <p>Ice skating and shit in NORWAY</p>
-                    <a href="http://youtu.be/EF1V8HFfpTE">apetor</a>
-                </aside>
+                @foreach ($notes as $note)
+                    @php
+                        $value = rand(1, 20);
+                    @endphp
+                    <aside class="note-wrap {{$style[$value%3]}}">
+                        <h4 class="color-black text-center"><strong> {{ $note->title }} </strong></h4>
+                        <p class="color-black"> <strong>تاريخ:</strong> {{ substr($note->created_at ,0, 10) }} </p>
+                        <p class="color-black"> <strong>الوقت:</strong> {{ substr($note->created_at , 10 ,  18) }} </p>
+                        <p class="color-black">{{ $note->body }}</p>
+                        <input type="hidden" id="note_link" value="{{URL::to('/').'/'. $note->link}}">
+                        <a onclick="CopyText('{{URL::to('/').'/'. $note->link}}')" href="javascript:void(0);">
+                            <span class="glyphicon glyphicon-link" data-toggle="tooltip" data-placement="top" title="نسخ الرابط !">
+                            </a>
+                        </span>
+                    </aside>
+                @endforeach
             </div>
         </div>
     </div>
@@ -110,27 +115,29 @@
                         }
                     </style>
                     <div class="contact-form">
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" role="form" id="formNote" method="POST" action="{{route('notes.store')}}">
+                            @csrf
                             <div class="form-group">
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="title" placeholder="العناون ..." />
+                                    <input type="text" class="form-control" id="title" placeholder="العنوان ..." name="title"/>
                                 </div>
                                 <label class="col-sm-3 control-label" for="title">العنوان:</label>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-9">
-                                    <select class="form-control" id="sel1">
+                                    <select class="form-control" id="person_id" name="person_id">
+                                        <option value="">اختر المستخدم</option>
                                         @foreach ($persons as $person)
                                         <option value="{{ $person->id }}"> {{ $person->first_name . ' ' . $person->last_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <label for="sel1" class="col-sm-3 control-label">مستخدم سابق:</label>
+                                <label for="person_id" class="col-sm-3 control-label">مستخدم سابق:</label>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-sm-9">
-                                    <textarea class="form-control" rows="5" id="body"></textarea>
+                                    <textarea class="form-control" rows="5" id="body" name="body"></textarea>
                                 </div>
                                 <label for="body" class="col-sm-3 control-label">النص:</label>
                             </div>
@@ -139,22 +146,35 @@
                                 <div class="col-sm-9">
 
                                     <div class="material-switch pull-right">
-                                        <input id="someSwitchOptionInfo" name="someSwitchOption001" type="checkbox" />
-                                        <label for="someSwitchOptionInfo" class="label-info"> </label>
+                                        <input id="someSwitchOptionInfo2" name="status" type="checkbox" />
+                                        <label for="someSwitchOptionInfo2" class="label-info"> </label>
                                     </div>
 
                                 </div>
-                                <label for="sel1" class="col-sm-3 control-label">عام للجميع:</label>
+                                <label for="status" class="col-sm-3 control-label">عام للجميع:</label>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">اغلاق</button>
-                    <button type="button" class="btn btn-info" data-dismiss="modal">حفظ</button>
+                    <button type="submit" class="btn btn-info" form="formNote">حفظ</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
+@push('script')
+
+    <script>
+        function CopyText(link) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val(link).select();
+            document.execCommand("copy");
+            $temp.remove();
+        }
+    </script>    
+@endpush
+
 @endsection

@@ -17,8 +17,10 @@ class NotesController extends Controller
      */
     public function index()
     {
-        $persons = Person::all();
-        return view('notes.index' , compact('persons'));
+        $persons = Auth::user()->persons;
+        $notes = Auth::user()->notes;
+        // return $notes;
+        return view('notes.index' , compact('persons' , 'notes'));
     }
 
     /**
@@ -39,7 +41,18 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $note = new Note();
+        $note->title = $request->title;
+        $note->body = $request->body;
+        $note->user_id = Auth::id();
+        $note->person_id = $request->person_id;
+        $note->link = $this->generateRandomString();
+        if($note->status == 'on'){
+            $note->status = 1;
+        }
+        $note->save() ;
+        return redirect()->back();
+
     }
 
     /**
@@ -95,5 +108,18 @@ class NotesController extends Controller
         $person->user_id = Auth::id();
         $person->save();
         return redirect()->back();
+    }
+
+    function generateRandomString()  {
+        $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $digits = '1234567890';
+        $randomString = '';
+        for ($i = 0; $i < 4; $i++) {
+            $randomString .= $letters[rand(0, strlen($letters) - 1)];
+        }
+        for ($i = 0; $i < 4; $i++) {
+            $randomString .= $digits[rand(0, strlen($digits) - 1)];
+        }
+        return $randomString;
     }
 }
