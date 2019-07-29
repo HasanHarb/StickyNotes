@@ -47,7 +47,7 @@ class NotesController extends Controller
         $note->user_id = Auth::id();
         $note->person_id = $request->person_id;
         $note->link = $this->generateRandomString();
-        if($note->status == 'on'){
+        if($request->status == 'on'){
             $note->status = 1;
         }
         $note->save() ;
@@ -63,7 +63,33 @@ class NotesController extends Controller
      */
     public function show($id)
     {
-        //
+        $note =  Note::where('link' , $id)->first() ; 
+        if($note){
+            if((Auth::check() && $note->user->id == Auth::user()->id) || $note->status == 1){
+                return view('notes.show', compact('note'));
+            }
+            else{
+                return abort(404) ;
+            }
+        }
+        else{
+            return abort(404) ;
+        }
+    }
+
+    public function ChangeStatus(Request $request)
+    {
+        $note =  Auth::user()->notes->where('id' , $request->id)->first() ; 
+        if($note){
+            $note->status = ($request->status == "true")? 1 : 0;
+            $note->save();
+            return response()
+            ->json(['message' => 'succsess']);
+        }
+        else{
+            return response()
+            ->json(['message' => 'warning']);
+        }
     }
 
     /**
