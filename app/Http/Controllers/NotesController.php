@@ -152,4 +152,13 @@ class NotesController extends Controller
         }
         return $randomString;
     }
+
+    public static function NumberOfNotes()
+    {
+        return Note::all()->count() ;
+    }
+    public static function NumberOfUsers()
+    {
+        return User::all()->count() ;
+    }
 }
