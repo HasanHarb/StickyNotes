@@ -41,6 +41,10 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|max:255|min:1',
+            'body' => 'required|min:1',
+        ]);
         $note = new Note();
         $note->title = $request->title;
         $note->body = $request->body;
@@ -63,7 +67,7 @@ class NotesController extends Controller
      */
     public function show($id)
     {
-        $note =  Note::where('link' , $id)->first() ; 
+        $note =  Note::where('link' , $id)->first() ;
         if($note){
             if((Auth::check() && $note->user->id == Auth::user()->id) || $note->status == 1){
                 return view('notes.show', compact('note'));
@@ -79,7 +83,7 @@ class NotesController extends Controller
 
     public function ChangeStatus(Request $request)
     {
-        $note =  Auth::user()->notes->where('id' , $request->id)->first() ; 
+        $note =  Auth::user()->notes->where('id' , $request->id)->first() ;
         if($note){
             $note->status = ($request->status == "true")? 1 : 0;
             $note->save();

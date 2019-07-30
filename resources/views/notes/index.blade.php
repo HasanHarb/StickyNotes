@@ -21,6 +21,21 @@
             </div>
         </div>
         <br>
+        <div class="row text-center" id="errors">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="container">
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <button type="button" class="btn btn-leggoo btn-lg btn-block btn-p-20" data-toggle="modal"
@@ -175,6 +190,14 @@
 @push('script')
 
     <script>
+        (function(){
+            HideErrorsDiv();
+        })();
+        function HideErrorsDiv(){
+            setTimeout(function(){
+                document.getElementById("errors").style.display = "none";
+            },5000);
+        }
         function CopyText(link) {
             var $temp = $("<input>");
             $("body").append($temp);
@@ -201,7 +224,7 @@
             });
         });
         }
-    </script>    
+    </script>
 @endpush
 
 @endsection
