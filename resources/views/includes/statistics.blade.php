@@ -6,15 +6,15 @@
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                     <div class="counter">
                         <i class="fa fa-male"></i>
-                        <div class="timer" id="item1" data-to="8991" data-speed="5000">8991</div>
-                        <h4> فريق العم</h4>
+                        <div class="timer" id="item1" data-to="{{ App\Http\Controllers\NotesController::NumberOfUsers() }}" data-speed="1000">0</div>
+                        <h4> المستخدمين</h4>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                     <div class="counter">
                         <i class="fa fa-check"></i>
-                        <div class="timer" id="item2" data-to="6394" data-speed="5000">6394</div>
-                        <h4>المشاؤيع</h4>
+                        <div class="timer" id="item2" data-to="{{ App\Http\Controllers\NotesController::NumberOfNotes() }}" data-speed="1000">0</div>
+                        <h4>الملاحظات</h4>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">

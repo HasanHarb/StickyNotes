@@ -7,7 +7,7 @@
                 <h1> ملاحظاتي لتسجيل الملاحظات والمهام </h1>
                 <p><span>سهولة</span> <i class="fa fa-star-o"></i><span>سرعة</span> <i
                         class="fa fa-star-o"></i><span>مجاني</span> </p>
-                <a class="btn-leggoo hvr-shutter-in-vertical" href="#ABOUT"> أبدا الان </a>
+                <a class="btn-leggoo hvr-shutter-in-vertical" href="/login"> أبدا الان </a>
             </div>
         </div>
     </div>

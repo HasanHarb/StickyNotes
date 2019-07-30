@@ -9,11 +9,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index-1.html">{{ config('app.name') }}</a>
+            <a class="navbar-brand" href="/">{{ config('app.name') }}</a>
         </div>
         <div class="collapse navbar-collapse" id="collapse-toggle">
             <ul class="nav navbar-nav navbar-right">
                 <li class="hvr-shutter-in-vertical"><a href="/"><i class="fa fa-tv nav-icon"></i> الرئيسيه </a></li>
+                <li class="hvr-shutter-in-vertical"><a href="/contact"><i class="fa fa-phone nav-icon"></i> تواصل معنا </a></li>
                 {{-- <li class="hvr-shutter-in-vertical"><a href="#SERVICES"><i class="fa fa-heart-o nav-icon"></i>
                         خدماتنا</a></li> --}}
                 {{-- <li class="hvr-shutter-in-vertical"><a href="#TEAM"><i class="fa fa-user-o nav-icon"></i> فريق العمل</a>

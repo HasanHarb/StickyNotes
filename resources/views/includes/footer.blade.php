@@ -38,9 +38,7 @@
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 copyright">
-                    <p><i class="fa fa-copyright"></i> Copy Right 2017 Made With
-                        <i class="fa fa-heart faa-pulse animated faa-fast"></i> By : <a href="#">M.Abozaid</a> ALL RIGHT
-                        RESERVED
+                    <p><i class="fa fa-copyright"></i> حقوق النشر محفوظة 2019 ملاحظاتي
                     </p>
                 </div>
             </div>

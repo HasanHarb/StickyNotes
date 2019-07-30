@@ -10,9 +10,7 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-7 col-md-offset-1 col-lg-7 col-lg-offset-1">
                 <div class="section-text">
-                    <p> لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات
-                        المطابع ودور
-                        النشر. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي </p>
+                    <p> تم تطوير موقع ملاحظاتي من قبل شركة Juniors من جامعة الخليل وهم: </p>
                 </div>
             </div>
         </div>
@@ -80,17 +78,17 @@
                     </div>
                 </div>
             </div> --}}
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"></div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"></div>
             <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                 <div class="team-item wow fadeI">
-                    <img src="assets/img/team/team4.jpg" alt="">
-                    <div class="team-name"> جون جونز</div>
+                    <img src="assets/img/team/team5.jpg" alt="">
+                    <div class="team-name"> حسن زهور</div>
                     <div class="team-overlay">
                         <div class="table">
                             <div class="table-cell">
-                                <h5> جون جونز </h5>
-                                <p> <strong>فرونت اند ديفيلوبر </strong></p>
-                                <p>لوريم إيبسوم هو ببساطة نص شكلي</p>
+                                <h5> حسن زهور </h5>
+                                <p> <strong> مطور ومبرمج </strong></p>
+                                <p>يعمل لدى شركة Juniors للتطوير</p>
                                 <div class="team-socialmedia">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -102,7 +100,31 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"></div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="team-item wow fadeI">
+                    <div class="team-item">
+                        <img src="assets/img/team/team6.jpg" alt="">
+                        <div class="team-name"> محمد امواس </div>
+                        <div class="team-overlay">
+                            <div class="table">
+                                <div class="table-cell">
+                                    <h5> محمد امواس </h5>
+                                    <p> <strong> مطور ومبرمج </strong></p>
+                                    <p>يعمل لدى شركة Juniors للتطوير</p>
+                                    <div class="team-socialmedia">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-youtube"></i></a>
+                                        <a href="#"><i class="fa fa-skype"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"></div>
 
         </div>
     </div>

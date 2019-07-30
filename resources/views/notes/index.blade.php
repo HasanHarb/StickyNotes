@@ -65,6 +65,10 @@
                         <h4 class="color-black text-center"><strong> {{ $note->title }} </strong></h4>
                         <p class="color-black"> <strong>تاريخ:</strong> {{ substr($note->created_at ,0, 10) }} </p>
                         <p class="color-black"> <strong>الوقت:</strong> {{ substr($note->created_at , 10 ,  18) }} </p>
+                        @if ($note->person)
+                            <p class="color-black"> <strong>خاصة بـ:</strong> {{ $note->person->first_name . ' ' . $note->person->last_name }} </p>
+                        @endif
+                        
                         <p class="color-black">{{ $note->body }}</p>
                         <input type="hidden" id="note_link" value="{{URL::to('/').'/'. $note->link}}">
                         <br>
