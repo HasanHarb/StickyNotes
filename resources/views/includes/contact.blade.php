@@ -28,6 +28,7 @@
                 <div class="col-xs-12 col-sm-6 col-md-7 col-md-offset-1 col-lg-7 col-lg-offset-1">
                     <div class="contact-form">
                         <form action="{{ route('contact.store') }}" method="POST">
+                            @csrf
                             <div class="form-group">
                                 <input type="text" class="form-control" name="name" placeholder="الاسم..." required>
                             </div>
