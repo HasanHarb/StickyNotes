@@ -22,4 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('notes', 'NotesController');
 Route::post('/notes/StorePerson', 'NotesController@StorePerson')->name('person.store');
 Route::post('/notes/ChangeStatus', 'NotesController@ChangeStatus');
+Route::get('/contact', function () {
+    return view('notes.contact');
+});
 Route::get('/{id}', 'NotesController@show');
