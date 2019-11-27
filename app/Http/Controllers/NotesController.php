@@ -7,6 +7,7 @@ use App\Person;
 use App\User;
 use App\Note;
 use Illuminate\Support\Facades\Auth;
+use Mockery\Matcher\Not;
 
 class NotesController extends Controller
 {
@@ -19,7 +20,7 @@ class NotesController extends Controller
     {
         $persons = Auth::user()->persons;
         $notes = Auth::user()->notes;
-        // return $notes;
+
         return view('notes.index' , compact('persons' , 'notes'));
     }
 
@@ -41,19 +42,23 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'title' => 'required|max:255|min:1',
             'body' => 'required|min:1',
         ]);
+
         $note = new Note();
         $note->title = $request->title;
         $note->body = $request->body;
         $note->user_id = Auth::id();
         $note->person_id = $request->person_id;
         $note->link = $this->generateRandomString();
+
         if($request->status == 'on'){
             $note->status = 1;
         }
+
         $note->save() ;
         return redirect()->back();
 
@@ -104,7 +109,7 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        //
+        return $id;
     }
 
     /**
@@ -127,7 +132,18 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $note = Note::where('id' , $id)->first();
+        if($note){
+            if($note->user_id === Auth::user()->id){
+                $note->delete();
+                return \redirect()->back();
+            }
+            else {
+                abort(404);
+            }
+        }else {
+            abort(404);
+        }
     }
 
     public function StorePerson(Request $request)
@@ -160,5 +176,33 @@ class NotesController extends Controller
     public static function NumberOfUsers()
     {
         return User::all()->count() ;
+    }
+
+    public function updateNote(Request $request) {
+
+        $request->validate([
+            'title' => 'required|max:255|min:1',
+            'body' => 'required|min:1',
+        ]);
+
+
+        $note = Note::where('id' , $request->id)->first();
+        if($note){
+            if($note->user_id === Auth::user()->id) {
+
+                $note->title = $request->title;
+
+                $note->body = $request->body;
+
+                $note->save();
+
+                return redirect()->back();
+            } else {
+                abort(404);
+            }
+        }
+        else {
+            abort(404);
+        }
     }
 }

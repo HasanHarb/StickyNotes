@@ -19,9 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/notes/updateNote','NotesController@updateNote')->name('note.updateNote');
+
 Route::resource('notes', 'NotesController');
 Route::post('/notes/StorePerson', 'NotesController@StorePerson')->name('person.store');
 Route::post('/notes/ChangeStatus', 'NotesController@ChangeStatus');
+
+Route::get('/notes/delete/{id}' , 'NotesController@destroy')->name('note.delete');
+
+
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact/store', 'ContactController@store')->name('contact.store');
 

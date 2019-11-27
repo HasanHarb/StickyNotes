@@ -37,13 +37,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            {{-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <button type="button" class="btn btn-leggoo btn-lg btn-block btn-p-20" data-toggle="modal"
                     data-target="#personModal">
                     <span class="glyphicon glyphicon-user"></span>
                     اضافة مستخدم جديد
                 </button>
-            </div>
+            </div> --}}
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <button type="button" class="btn btn-leggoo btn-lg btn-block btn-p-20" data-toggle="modal"
                     data-target="#noteModal">
@@ -51,6 +51,7 @@
                     اضافة ملاحظة جديد
                 </button>
             </div>
+
         </div>
         <div class="row">
             <?php
@@ -68,7 +69,7 @@
                         @if ($note->person)
                             <p class="color-black"> <strong>خاصة بـ:</strong> {{ $note->person->first_name . ' ' . $note->person->last_name }} </p>
                         @endif
-                        
+
                         <p class="color-black">{{ $note->body }}</p>
                         <input type="hidden" id="note_link" value="{{URL::to('/').'/'. $note->link}}">
                         <br>
@@ -81,15 +82,33 @@
                         </span>
                         <div class="material-switch pull-right">
                             <input id="toggle_{{ $note->id }}" name="status" onclick="myfun('{{$note->id }}')" type="checkbox" @if ($note->status) checked @else "" @endif />
-                                <label for="toggle_{{ $note->id }}" class="label-info"> </label>
+                            <label for="toggle_{{ $note->id }}" class="label-info"> </label>
+                        </div>
+                            <div style="display: inline-flex">
+                            <form action="{{ route('note.delete' , $note->id) }}" method="get">
+                                @csrf
+
+                                <input type="hidden" value="{{ $note->id }}" >
+
+                                <button type="submit" class="btn btn-danger">
+                                    <span class="glyphicon  glyphicon-remove" data-toggle="tooltip" data-placement="top" title="حذف !">
+                                </button>
+
+                            </form>
+                            <div style="padding-right: 10px;">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" onclick="openEditModel({{ $note }})">
+                                    <span class="glyphicon   glyphicon-pencil" data-toggle="tooltip" data-placement="top" title="تعديل !">
+                                </button>
                             </div>
+                        </div>
+
                     </aside>
                 @endforeach
             </div>
         </div>
     </div>
     <!-- Modal Person-->
-    <div id="personModal" class="modal fade" role="dialog">
+    {{-- <div id="personModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -125,7 +144,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Modal Nots-->
     <div id="noteModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -150,7 +169,7 @@
                                 </div>
                                 <label class="col-sm-3 control-label" for="title">العنوان:</label>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <div class="col-sm-9">
                                     <select class="form-control" id="person_id" name="person_id">
                                         <option value="">اختر المستخدم</option>
@@ -160,7 +179,7 @@
                                     </select>
                                 </div>
                                 <label for="person_id" class="col-sm-3 control-label">مستخدم سابق:</label>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <div class="col-sm-9">
@@ -190,6 +209,79 @@
             </div>
         </div>
     </div>
+
+
+
+
+    {{-- start Edit Model --}}
+    <div id="editNoteModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">تعديل ملاحظه  </h4>
+                    </div>
+                    <div class="modal-body">
+                        <style>
+                            .contact-form .form-control {
+                                color: #999 !important;
+                            }
+                        </style>
+                        <div class="contact-form">
+                            <form class="form-horizontal" role="form" id="formNotes" method="POST" action="{{route('note.updateNote')}}">
+                                @csrf
+
+                                <input id="edit_id" type="hidden"  name="id" value="" >
+
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <input id="edit_title" type="text" class="form-control" id="title" placeholder="العنوان ..." name="title"/>
+                                    </div>
+                                    <label class="col-sm-3 control-label" for="title">العنوان:</label>
+                                </div>
+                                {{-- <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="person_id" name="person_id">
+                                            <option value="">اختر المستخدم</option>
+                                            @foreach ($persons as $person)
+                                            <option value="{{ $person->id }}"> {{ $person->first_name . ' ' . $person->last_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <label for="person_id" class="col-sm-3 control-label">مستخدم سابق:</label>
+                                </div> --}}
+
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <textarea id="edit_body" class="form-control" rows="5" id="body" name="body"></textarea>
+                                    </div>
+                                    <label for="body" class="col-sm-3 control-label">النص:</label>
+                                </div>
+
+                                {{-- <div class="form-group">
+                                    <div class="col-sm-9">
+
+                                        <div class="material-switch pull-right">
+                                            <input id="someSwitchOptionInfo2" name="status" type="checkbox" />
+                                            <label for="someSwitchOptionInfo2" class="label-info"> </label>
+                                        </div>
+
+                                    </div>
+                                    <label for="status" class="col-sm-3 control-label">عام للجميع:</label>
+                                </div> --}}
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">اغلاق</button>
+                        <button type="submit" class="btn btn-info" form="formNotes">حفظ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- End Of Edit Mdoel --}}
+
 </section>
 @push('script')
 
@@ -227,6 +319,13 @@
                 }
             });
         });
+        }
+
+        function openEditModel(n) {
+            $("#edit_id").val(n.id);
+            $('#edit_title').val(n.title);
+            $('#edit_body').val(n.body);
+            $('#editNoteModal').modal('show');
         }
     </script>
 @endpush

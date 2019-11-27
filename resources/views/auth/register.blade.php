@@ -15,7 +15,7 @@
             <style>
                 .contact-form .form-control {
                     color: #999 !important;
-                }    
+                }
             </style>
             <div class="col-xs-12 col-sm-6 col-md-7 col-md-offset-1 col-lg-7 col-lg-offset-1">
                 <div class="contact-form">
@@ -76,9 +76,6 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <h3>لدي حساب</h3>
-                <p>لوريم إيبسوم هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم
-                    في
-                    صناعات المطابع ودور النشر.</p>
                 <button type="submit" class="btn btn-leggoo pull-right">نسجيل الدخول</button>
             </div>
         </div>

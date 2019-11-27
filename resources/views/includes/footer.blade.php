@@ -3,12 +3,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="leggoo"> {{ config('app.name', 'Laravel') }} </div>
+                    <div class="leggoo"> ملاحظاتي </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 social-icon">
                     <a href="#" title="">
                         <div class="item ">
-                            <i class="fa fa-facebook"></i>
+                            <a class="fa fa-facebook" href="https://www.facebook.com/enapgroub"></a>
                         </div>
                     </a>
                     <a href="#" title="">
